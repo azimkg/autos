@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 80vw;
+  margin: 0 auto;
+}
+.form_wrap {
+  display: flex;
+  justify-content: space-around;
+  /* width: 80vw; */
+  flex-wrap: wrap;
+}
+.form_inner {
+  margin: 25px auto !important;
+  width: 35vw !important;
+  border: 1px solid rgb(211, 205, 205);
+  padding: 30px;
+}
+.form_inner h3 {
+  text-align: start;
+  color: #878787;
+  font-style: bold;
+  margin-bottom: 20px;
+}
+.form_inner p {
+  text-align: start;
+  color: #878787;
+}
+
+@media (max-width: 767px) {
+  .form_inner {
+    width: 70vw !important;
+  }
+  .bottom_card {
+    justify-content: space-between;
+  }
+}
+
+.isLogin {
+  color: red;
+  cursor: pointer;
+}
+.login-form-button {
+  background-color: #878787 !important;
+}
+
+.form_bottom {
+  width: 100vw;
+  height: auto;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: space-around;
+}
+.form_bottom-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.bottom_card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 250px;
+  height: 70px;
+  margin: 20px !important;
+  /* padding: 20px !important; */
+}
+.bottom_card-txt {
+  text-align: start;
+}
+@media (max-width: 767px) {
+  .bottom_card {
+    justify-content: space-between;
+  }
+}
+
+.bottom_card-img {
+  font-size: 40px;
+  border: 1px solid rgb(211, 205, 205);
+  border-radius: 50%;
+  padding: 10px;
+  background: white !important;
+  color: red !important;
+}

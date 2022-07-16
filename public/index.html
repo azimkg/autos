@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,600,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <title>React App</title>
+    <link
+      rel="shortcut icon"
+      type="image/svg"
+      href="data:image/png;base64,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"
+    />
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

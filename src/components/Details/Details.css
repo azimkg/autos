@@ -1,0 +1,108 @@
+.details__main {
+  display: flex;
+  align-items: center;
+  padding: 50px 0;
+  column-gap: 50px;
+}
+
+.details__main-right {
+  padding: 5px;
+  border: 2px solid #e5e5e5;
+}
+.details__main-right-img {
+  width: 300px;
+}
+.details__main-left-title {
+  letter-spacing: 2px;
+  line-height: 28px;
+}
+.details__main-left-price {
+  color: #cccccc;
+}
+.details__main-border {
+  border-bottom: 1px solid #e5e5e5;
+  width: 500px;
+  margin: 10px 0;
+}
+.details__main-left-text {
+  display: flex;
+  column-gap: 15px;
+}
+
+.details__main-left-right-border {
+  width: 5px;
+  background-color: rgb(252, 57, 57);
+}
+.details__main-left-h33 {
+  font-weight: bold;
+  color: #363636;
+}
+.details__main-left-h3 {
+  font-weight: bold;
+  color: #878787;
+}
+.details__desc {
+  width: 100%;
+  max-width: 100%;
+  border: 2px solid #e5e5e5;
+  display: flex;
+}
+.details__desc-1 {
+  width: 20%;
+  border-right: 2px solid #e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(246, 54, 54);
+}
+.details__desc-2 {
+  width: 70%;
+  padding: 10px;
+}
+
+/* spinner */
+@keyframes spinner {
+  100% {
+    transform: rotate(3600deg);
+  }
+}
+
+.loading-container {
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  top: 11vh;
+  transform: translateY(-50%);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.spinner {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: url("https://pngicon.ru/file/uploads/2_43.png") center center;
+  background-size: contain;
+  transition-origin: 50% 50%;
+  animation: spinner 3s infinite alternate ease-in-out;
+}
+.spinner-center {
+  display: inline-block;
+  position: absolute;
+  margin-left: -100px;
+  width: 100px;
+  height: 100px;
+  background: url("http://i.imgur.com/u0BC2ZR.png") center center;
+  background-size: contain;
+  content: "";
+}
+
+.loading-text {
+  position: relative;
+  z-index: 1;
+  font-size: 1.5rem;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  margin-left: 0.5em;
+}

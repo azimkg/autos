@@ -1,0 +1,37 @@
+{
+  "parts": [
+    {
+      "category": "Кузовные запчасти",
+      "title": "aizm",
+      "desc": 200,
+      "price": "The best part ",
+      "vincode": "w1003092",
+      "articul": "1891738",
+      "brand": "ford",
+      "model": "Focus C-MAX 2003-2007",
+      "id": 1
+    },
+    {
+      "category": "Топливная система",
+      "title": "beka",
+      "desc": 200,
+      "price": "The best part ",
+      "vincode": "w1003092",
+      "articul": "1891738",
+      "brand": "CHEVROLET",
+      "model": "Aveo (T250) 2007",
+      "id": 2
+    },
+    {
+      "category": "Аккумуляторы",
+      "title": "absa",
+      "desc": 180,
+      "price": "The best part ",
+      "vincode": "w1003092",
+      "articul": "1891738",
+      "brand": "Другое",
+      "model": "Другое",
+      "id": 3
+    }
+  ]
+}

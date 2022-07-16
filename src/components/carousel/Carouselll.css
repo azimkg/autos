@@ -1,0 +1,30 @@
+.carousel__images {
+  width: 100%;
+  max-width: 100%;
+  z-index: -1 !important;
+}
+
+.carousel__images320{
+  /* width: 100%; */
+  display: none !important;
+}
+
+
+
+/* .slick-slide{
+  height: 500px !important;
+} */
+
+@media (max-width: 320px) {
+  .carousel__images{
+    display: none !important;
+  }
+
+  .carousel__images320{
+    /* width: 320px; */
+    width: 100%;
+    display: block !important;
+  }
+}
+
+

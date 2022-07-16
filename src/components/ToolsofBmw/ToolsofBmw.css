@@ -1,0 +1,19 @@
+.tool-card-img {
+  width: 210px;
+  height: 210px;
+  inset: 0;
+  object-fit: cover;
+  transition: transform 0.75s;
+}
+.shopping-icon {
+  font-size: 18px !important;
+}
+.card__border {
+  border: 1px solid rgb(211, 205, 205) !important;
+}
+.main-tool {
+  margin-top: 50px;
+}
+.card__block-category {
+  color: #8792b6;
+}
