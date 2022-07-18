@@ -89,7 +89,7 @@ export const categories = [
     id: 22,
   },
   {
-    title: "Системы Кондиционироания",
+    title: "Системы Кондиционирования",
     img: conder,
     id: 23,
   },

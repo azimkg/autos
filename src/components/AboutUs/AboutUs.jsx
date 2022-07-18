@@ -3,6 +3,7 @@ import price from "../Images/price.png";
 import choice from "../Images/choice.png";
 import deliver from "../Images/deliver.png";
 import return1 from "../Images/return.png";
+import imgs from "../Images/imgs.webp";
 
 import garant from "../Images/garant.png";
 
@@ -16,11 +17,7 @@ const AboutUs = () => {
       <div className="about_cols">
         <div className="about_cols_1">
           <h1 className="about-3_1-title">О нас</h1>
-          <img
-            id="about_cols_1_img"
-            src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
-            alt=""
-          />
+          <img id="about_cols_1_img" src={imgs} alt="image" />
           <p id="about_cols_text">
             AutoRay - интернет-магазин автозапчастей в Бишкеке,
             специализирующийся на продаже всех видов запасных частей,

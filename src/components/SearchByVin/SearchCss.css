@@ -26,10 +26,16 @@
   width: 300px;
   height: 270px;
 }
+@media (max-width: 680px) {
+  .esesse {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 @media (max-width: 375px) {
   .esesse {
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
   }
   .list__tools {
     width: 250px;

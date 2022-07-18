@@ -1,3 +1,4 @@
+import { List } from "antd";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { partContext } from "../../partsContext";
@@ -9,17 +10,22 @@ const Details = () => {
   const params = useParams();
   useEffect(() => {
     getOneParts(params.id);
-    // setEditOne(onePart);
   }, []);
   console.log(onePart);
   return onePart ? (
     <div className="container">
       <div className="details__main">
         <div className="details__main-right">
-          <img
-            className="details__main-right-img"
-            src="https://img.nauticexpo.ru/images_ne/photo-g/22164-10523609.jpg"
-            alt="image"
+          <List
+            itemLayout="horizontal"
+            dataSource={onePart.good_picture}
+            renderItem={(item) => (
+              <img
+                className="details__main-right-img"
+                src={item.picture}
+                alt="image"
+              />
+            )}
           />
         </div>
         <div className="details__main-left">

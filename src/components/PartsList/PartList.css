@@ -1,4 +1,5 @@
 .divskiy {
-  display: flex !important;
+  display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }

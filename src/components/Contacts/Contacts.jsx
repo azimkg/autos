@@ -28,11 +28,11 @@ const Contacts = () => {
           <h3>AutoRay</h3>
           <div className="inner-bottom-card">
             <HomeFilled className="social_icon" />
-            <span className="forText">г. Бишкек, Рынок "Кудайберген"</span>
+            <a className="forText">г. Бишкек, Рынок "Кудайберген"</a>
           </div>
           <div className="inner-bottom-card">
             <HomeFilled className="social_icon" />
-            <span className="forText">г. Бишкек, 192 ул. Киевская</span>
+            <a className="forText">г. Бишкек, 192 ул. Киевская</a>
           </div>
 
           <div className="inner-bottom-card">

@@ -11,7 +11,6 @@ const Home = () => {
       <Carouselll />
       <Cart />
       <Brends />
-      <BestSeller />
       <ShopByCategories />
     </div>
   );
