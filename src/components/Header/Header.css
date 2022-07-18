@@ -297,7 +297,9 @@ a:hover {
   margin-bottom: 0;
   font-size: 14px;
 }
-
+.header2-navbar2 {
+  display: none;
+}
 @media (max-width: 1200px) {
   .header-input {
     width: 170px;
@@ -305,6 +307,12 @@ a:hover {
 }
 @media (max-width: 990px) {
   .header1-select {
+    display: none;
+  }
+  .header2-navbar2 {
+    display: block;
+  }
+  .header2-block2-category {
     display: none;
   }
   .header-input {

@@ -95,39 +95,67 @@ const Header = () => {
                 setAll(!all);
                 setFeatures(false);
               }}
-              className="header2-block1"
+              className="header2-block1 header2-block2-category"
             >
               <h5 className="header-h5">ВСЕ КАТЕГОРИИ</h5>
               <img className="burger" src={image3} alt="" />
               {all ? (
                 <div className="all">
                   {categories.map((item) => (
-                    <Link to={`/category/${item.id}`}>
-                      <h4 key={item.id} className="all-link">
-                        {item.title}
-                      </h4>
-                    </Link>
+                    <div className="category-link">
+                      <Link to={`/category/${item.id}`}>
+                        <h4 key={item.id} className="all-link">
+                          {item.title}
+                        </h4>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+            <div
+              onClick={() => {
+                setAll(!all);
+                setFeatures(false);
+              }}
+              className="header2-block1 header2-navbar2"
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  paddingTop: "10px",
+                }}
+              >
+                <h5 className="header-h5" style={{ marginLeft: "10px" }}>
+                  MENU
+                </h5>
+                <img
+                  style={{ marginLeft: "100px" }}
+                  className="burger"
+                  src={image11}
+                  alt=""
+                />
+              </div>
+              {all ? (
+                <div className="all">
+                  {NAVBAR_ITEMS.map((item) => (
+                    <div className="category-link">
+                      <Link to={item.link}>
+                        <h4 key={item.id} className="all-link">
+                          {item.title}
+                        </h4>
+                      </Link>
+                    </div>
                   ))}
                 </div>
               ) : null}
             </div>
 
             <div className="header2-block2">
-              <div className="header-media">
-                <img
-                  onClick={navToggle}
-                  className="burger-block2"
-                  src={image11}
-                  alt="image"
-                />
-              </div>
+              <div className="header-media"></div>
               <div className={active}>
-                <img
-                  onClick={navToggle}
-                  src={image5}
-                  alt="image"
-                  className="close"
-                />
+                <img src={image5} alt="image" className="close" />
 
                 {NAVBAR_ITEMS.map((navLink) => (
                   <Link
