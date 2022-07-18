@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { favContext } from "../../favContext";
 import { partContext } from "../../partsContext";
+import undefined from "../../components/Images/no_image.webp";
 import fav from "../Images/fav.png";
 
 const OneCategories = ({ item, loc }) => {
@@ -12,6 +13,7 @@ const OneCategories = ({ item, loc }) => {
   useEffect(() => {
     getAllCategories();
   }, []);
+  let pic = item.good_picture;
   return (
     <>
       {loc == item.category ? (
@@ -19,11 +21,13 @@ const OneCategories = ({ item, loc }) => {
           <div className="cards">
             <div className="card">
               <div className="card_block">
-                <img
-                  className="card__img"
-                  src="https://images.prom.ua/2035853805_podvesnoj-podshipnik-mercedes.jpg"
-                  alt=""
-                />
+                {pic ? (
+                  pic.map((img) => (
+                    <img className="card__img" src={img.picture} alt="image" />
+                  ))
+                ) : (
+                  <img src={undefined} className="card__img" alt="image" />
+                )}
                 <img
                   src={fav}
                   onClick={() => {

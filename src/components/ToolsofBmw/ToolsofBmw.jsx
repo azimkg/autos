@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import { favContext } from "../../favContext";
 import { partContext } from "../../partsContext";
 import { useEffect } from "react";
+import undefined from "../Images/no_image.webp";
 const { Meta } = Card;
 
 const ToolsofBmw = ({ item }) => {
@@ -25,9 +26,13 @@ const ToolsofBmw = ({ item }) => {
         <Link to={`/details/${item.id}`}>
           <div className="card">
             <div className="card_block">
-              {pic.map((img) => (
-                <img className="card__img" src={img.picture} alt="image" />
-              ))}
+              {pic ? (
+                pic.map((img) => (
+                  <img className="card__img" src={img.picture} alt="image" />
+                ))
+              ) : (
+                <img src={undefined} className="card__img" alt="image" />
+              )}
               <img
                 src={fav}
                 onClick={() => {

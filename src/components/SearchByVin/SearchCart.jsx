@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { favContext } from "../../favContext";
 import { partContext } from "../../partsContext";
 import fav from "../Images/fav.png";
+import undefined from "../Images//no_image.webp";
 import "./SearchCss.css";
 
 const SearchCart = ({ item }) => {
@@ -19,16 +20,19 @@ const SearchCart = ({ item }) => {
   console.log(params.id + "params");
   console.log(category.id);
   const [checkItem2, setCheckItem2] = useState(checkItemInCard2(item.id));
+  let pic = item.good_picture;
   return (
     <div className="cards__block">
       <div className="cards">
         <div className="card">
           <div className="card_block">
-            <img
-              className="card__img"
-              src="https://images.prom.ua/2035853805_podvesnoj-podshipnik-mercedes.jpg"
-              alt=""
-            />
+            {pic ? (
+              pic.map((img) => (
+                <img className="card__img" src={img.picture} alt="image" />
+              ))
+            ) : (
+              <img src={undefined} className="card__img" alt="image" />
+            )}
             <img
               src={fav}
               onClick={() => {

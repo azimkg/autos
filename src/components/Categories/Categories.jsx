@@ -13,9 +13,6 @@ const Categories = () => {
   let local = loc.match(/[0-9]/g);
   let arr = local.join("");
   let arr1 = parseInt(arr);
-  console.log(arr1);
-
-  console.log(arr1);
 
   useEffect(() => {
     getAllCategories();

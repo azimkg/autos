@@ -3,7 +3,7 @@ import price from "../Images/price.png";
 import choice from "../Images/choice.png";
 import deliver from "../Images/deliver.png";
 import return1 from "../Images/return.png";
-import imgs from "../Images/imgs.webp";
+import imgs from "../Images/41808.webp";
 
 import garant from "../Images/garant.png";
 
@@ -44,23 +44,7 @@ const AboutUs = () => {
         </div>
         <div className="about_cols_2">
           <h1 className="about-3_1-title">Наши преимущества</h1>
-          {/* <Collapse className="about_cols_2_collapse" accordion>
-            <Panel key="1">
-              <p>{"Доступные цены"}</p>
-            </Panel>
-            <Panel key="2">
-              <p>{"Широкий выбор"}</p>
-            </Panel>
-            <Panel key="3">
-              <p>{"Быстрая доставка"}</p>
-            </Panel>
-            <Panel key="4">
-              <p>{"Гарантия на товары"}</p>
-            </Panel>
-            <Panel key="5">
-              <p>{"Простой возврат"}</p>
-            </Panel>
-          </Collapse> */}
+
           <div className="about__panel">
             <img className="about__panel-img" src={price} alt="" />
             <p className="about__panel-text">Доступные цены</p>
