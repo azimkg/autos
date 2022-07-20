@@ -128,23 +128,21 @@ const Header = () => {
                 }}
               >
                 <h5 className="header-h5" style={{ marginLeft: "10px" }}>
-                  MENU
+                  МЕНЮ
                 </h5>
                 <img
                   style={{ marginLeft: "100px" }}
                   className="burger"
                   src={image11}
-                  alt=""
+                  alt="image"
                 />
               </div>
               {all ? (
                 <div className="all">
                   {NAVBAR_ITEMS.map((item) => (
                     <div className="category-link">
-                      <Link to={item.link}>
-                        <h4 key={item.id} className="all-link">
-                          {item.title}
-                        </h4>
+                      <Link to={item.link} key={item.id}>
+                        <h4 className="all-link">{item.title}</h4>
                       </Link>
                     </div>
                   ))}
@@ -179,7 +177,7 @@ const Header = () => {
                 <div className="features">
                   <div className="features-block1">
                     {brands.map((item) => (
-                      <Link to={`/models/${item.id}`}>
+                      <Link to={`/models/${item.id}`} key={item.id}>
                         <h4
                           onClick={() => setFeatures(false)}
                           className="features-h4"
