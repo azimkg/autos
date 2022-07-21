@@ -4,6 +4,8 @@ import wheels from "../Images/4977.webp";
 import videorecorder from "../Images/P2PDHX0.webp";
 import oil from "../Images/oil.webp";
 import thumb from "../Images/thumb.webp";
+import { Link } from "react-router-dom";
+import { categories } from "../../helpers/categorie";
 
 const ShopByCategories = () => {
   return (
@@ -53,7 +55,11 @@ const ShopByCategories = () => {
                 </ul>
               </div>
             </div>
-            <button className=" btn-BestSeller">Посмотреть</button>
+            {categories.slice(0, 1).map((item) => (
+              <Link to={`/category/${item.id}`}>
+                <button className="btn-BestSeller">Посмотреть</button>
+              </Link>
+            ))}
           </div>
           <div className="shopByCategories__divchik">
             <div className="shopByCategories__cards">
@@ -87,7 +93,11 @@ const ShopByCategories = () => {
                 </ul>
               </div>
             </div>
-            <button className=" btn-BestSeller">Посмотреть</button>
+            {categories.slice(2, 3).map((item) => (
+              <Link to={`/category/${item.id}`}>
+                <button className="btn-BestSeller">Посмотреть</button>
+              </Link>
+            ))}
           </div>
           <div className="shopByCategories__divchik">
             <div className="shopByCategories__cards">
@@ -119,7 +129,11 @@ const ShopByCategories = () => {
                 </ul>
               </div>
             </div>
-            <button className=" btn-BestSeller">Посмотреть</button>
+            {categories.slice(1, 2).map((item) => (
+              <Link to={`/category/${item.id}`}>
+                <button className="btn-BestSeller">Посмотреть</button>
+              </Link>
+            ))}
           </div>
           <div className="shopByCategories__divchik">
             <div className="shopByCategories__cards">
@@ -147,11 +161,17 @@ const ShopByCategories = () => {
                   <li className="shopByCategories__cards-li">
                     Внутренний свет
                   </li>
-                  <li className="shopByCategories__cards-li">Конструктор</li>
+                  <li className="shopByCategories__cards-li">
+                    Освещение и электрика
+                  </li>
                 </ul>
               </div>
             </div>
-            <button className=" btn-BestSeller">Посмотреть</button>
+            {categories.slice(11, 12).map((item) => (
+              <Link to={`/category/${item.id}`}>
+                <button className="btn-BestSeller">Посмотреть</button>
+              </Link>
+            ))}
           </div>
           <div className="shopByCategories__divchik">
             <div className="shopByCategories__cards">
@@ -172,7 +192,7 @@ const ShopByCategories = () => {
                 <h3 className="shopByCategories__cards-h3">ЗАПАСНЫЕ ЧАСТИ</h3>
                 <ul className="shopByCategories__cards-ul">
                   <li className="shopByCategories__cards-li">
-                    Освещение и электрика
+                    Запасные детали
                   </li>
                   <li className="shopByCategories__cards-li">
                     Тормозные детали
@@ -185,7 +205,11 @@ const ShopByCategories = () => {
                 </ul>
               </div>
             </div>
-            <button className=" btn-BestSeller">Посмотреть</button>
+            {categories.slice(6, 7).map((item) => (
+              <Link to={`/category/${item.id}`}>
+                <button className="btn-BestSeller">Посмотреть</button>
+              </Link>
+            ))}
           </div>
           <div className="shopByCategories__divchik">
             <div className="shopByCategories__cards">
@@ -225,7 +249,11 @@ const ShopByCategories = () => {
                 </ul>
               </div>
             </div>
-            <button className=" btn-BestSeller">Посмотреть</button>
+            {categories.slice(17, 18).map((item) => (
+              <Link to={`/category/${item.id}`}>
+                <button className="btn-BestSeller">Посмотреть</button>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

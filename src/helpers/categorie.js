@@ -15,6 +15,8 @@ import fuel from "../components/Categories/img/fuel.svg";
 import conder from "../components/Categories/img/conder.svg";
 import brake from "../components/Categories/img/brake.svg";
 import branch from "../components/Categories/img/branch.svg";
+import tools from "../components/Categories/img/tools.svg";
+
 export const categories = [
   {
     title: "Шины/Диски",
@@ -89,7 +91,7 @@ export const categories = [
     id: 22,
   },
   {
-    title: "Системы Кондиционироания",
+    title: "Системы Кондиционирования",
     img: conder,
     id: 23,
   },
@@ -102,5 +104,10 @@ export const categories = [
     title: "Бачки, Патрубки,воздуховоды",
     img: branch,
     id: 25,
+  },
+  {
+    title: "Инструменты и оборудование",
+    img: tools,
+    id: 27,
   },
 ];

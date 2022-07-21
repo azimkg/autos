@@ -7,11 +7,15 @@ import {
   TeamOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Button, Form, Input } from "antd";
-import { useState } from "react";
+import { Button, Form, Input, Row, Col, Alert } from "antd";
+import { useContext, useState } from "react";
+import { authContext } from "../../authContext";
+import { useNavigate } from "react-router-dom";
 import "./Forma.css";
 
 const App = () => {
+  const { handleLogin, handleSignUp, error } = useContext(authContext);
+  const navigate = useNavigate();
   const [isLoginForm, setIsLoginForm] = useState(false);
   function validatePassword(rule, value, callback) {
     let regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/);
@@ -23,8 +27,15 @@ const App = () => {
       );
     }
   }
+
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+    console.log(values);
+    const { email, password } = values;
+    if (isLoginForm) {
+      handleLogin(email, password, navigate);
+    } else {
+      handleSignUp(email, password, navigate);
+    }
   };
 
   return (
@@ -32,123 +43,107 @@ const App = () => {
       <div className="form_wrap container">
         <div className="form_inner">
           <h3>
-            <FileOutlined />
+            <FileOutlined className="svg__form" />
             НОВЫЙ ПОКУПАТЕЛЬ
           </h3>
           <p>
-            Создав учетную запись, вы сможете совершать покупки быстрее и
-            отслеживать ранее сделанные заказы.
+            Создав учетную запись, вы сможете добавлять товары в корзину и
+            отслеживать ранее добавленные товары.
           </p>
         </div>
         <div className="form_inner">
           <h3>
-            <FileTextOutlined />
+            <FileTextOutlined className="svg__form " />
             ПОСТОЯННЫЙ КЛИЕНТ
           </h3>
-          <Form
-            name="normal_login"
-            className="login-form"
-            initialValues={{
-              remember: true,
-            }}
-            onFinish={onFinish}
-          >
-            <Form.Item
-              name="email"
-              rules={[
-                {
-                  required: true,
-                  message: "Пожалуйста введите вашу почту!",
-                },
-                {
-                  type: "email",
-                  message: "Почта введена некорректно!",
-                },
-              ]}
-            >
-              <Input
-                prefix={<UserOutlined className="site-form-item-icon" />}
-                placeholder="Useremail"
-              />
-            </Form.Item>
-            <Form.Item
-              name="password"
-              rules={[
-                {
-                  required: true,
-                  message: "Пожалуйста введите ваш пароль!",
-                },
-                {
-                  validator: validatePassword,
-                },
-              ]}
-            >
-              <Input
-                prefix={<LockOutlined className="site-form-item-icon" />}
-                type="password"
-                placeholder="Password"
-              />
-            </Form.Item>
-          </Form>
-          <Form.Item>
-            <div>
-              <Button
-                type="primary"
-                htmlType="submit"
-                className="login-form-button"
+
+          <Row>
+            <Col span={15}>
+              {error ? <Alert description={error} type="error" /> : null}
+              <Form
+                name="normal_login"
+                className="login-form"
+                initialValues={{
+                  remember: true,
+                }}
+                onFinish={onFinish}
               >
-                {isLoginForm ? "Log in" : "Sign up"}
-              </Button>
-            </div>
-            <div>
-              {isLoginForm ? (
-                <>
-                  Или{" "}
-                  <span
-                    className="isLogin"
-                    onClick={() => setIsLoginForm(false)}
-                  >
-                    зарегистрируйтесь сейчас!
-                  </span>
-                </>
-              ) : (
-                <>
-                  Вы имеете аккаунт?{" "}
-                  <span
-                    className="isLogin"
-                    onClick={() => setIsLoginForm(true)}
-                  >
-                    Log in
-                  </span>
-                </>
-              )}
-            </div>
-          </Form.Item>
-        </div>
-      </div>
-      <div className="form_bottom">
-        <div className="form_bottom-wrapper">
-          <div className="bottom_card">
-            <CarOutlined className="bottom_card-img" />
-            <div className="bottom_card-txt">
-              <h4>БЕСПЛАТНАЯ ДОСТАВКА</h4>
-              <p>This is the description</p>
-            </div>
-          </div>
-          <div className="bottom_card">
-            <TeamOutlined className="bottom_card-img" />
-            <div className="bottom_card-txt">
-              <h4>ОНЛАЙН ПОДДЕРЖКА</h4>
-              <p>This is the description</p>
-            </div>
-          </div>
-          <div className="bottom_card">
-            <RetweetOutlined className="bottom_card-img" />
-            <div className="bottom_card-txt">
-              <h4>30 ДНЕЙ ВОЗВРАТ</h4>
-              <p>This is the description</p>
-            </div>
-          </div>
+                <Form.Item
+                  name="email"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Пожалуйста введите вашу почту!",
+                    },
+                    {
+                      type: "email",
+                      message: "Почта введена некорректно!",
+                    },
+                  ]}
+                >
+                  <Input
+                    className="form__login__password"
+                    prefix={<UserOutlined className="site-form-item-icon" />}
+                    placeholder="Введите email"
+                  />
+                </Form.Item>
+                <Form.Item
+                  name="password"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Пожалуйста введите ваш пароль!",
+                    },
+                    {
+                      validator: validatePassword,
+                    },
+                  ]}
+                >
+                  <Input
+                    className="form__login__password"
+                    prefix={<LockOutlined className="site-form-item-icon" />}
+                    type="password"
+                    placeholder="Введите пароль"
+                  />
+                </Form.Item>
+
+                <Form.Item>
+                  <div>
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      className="login-form-button"
+                    >
+                      {isLoginForm ? "Вход" : "Регистрация"}
+                    </Button>
+                  </div>
+                  <div>
+                    {isLoginForm ? (
+                      <>
+                        Или
+                        <span
+                          className="isLogin"
+                          onClick={() => setIsLoginForm(false)}
+                        >
+                          зарегистрируйтесь сейчас!
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        Вы имеете аккаунт?
+                        <span
+                          className="isLogin"
+                          onClick={() => setIsLoginForm(true)}
+                        >
+                          Войти
+                        </span>
+                      </>
+                    )}
+                  </div>
+                </Form.Item>
+              </Form>
+            </Col>
+          </Row>
         </div>
       </div>
     </div>

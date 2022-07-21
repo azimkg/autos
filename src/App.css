@@ -12,14 +12,18 @@
 .card {
   position: relative;
   margin-top: 50px;
-  min-width: 150px;
-  max-width: 270px;
-  min-height: 405px;
+  /* min-width: 150px; */
+  width: 270px;
+  min-height: 360px;
   padding: 10px 20px;
   -webkit-box-shadow: -5px 9px 80px -5px rgba(122, 122, 122, 0.61);
   -moz-box-shadow: -5px 9px 80px -5px rgba(122, 122, 122, 0.61);
   box-shadow: -5px 9px 80px -5px rgba(122, 122, 122, 0.61);
   transition: all 1s;
+}
+.cards__block {
+  display: inline-block;
+  margin-right: 10px;
 }
 .card__block {
   position: relative;
@@ -45,9 +49,13 @@
 }
 .card__img {
   max-width: 100%;
+  margin-bottom: 15px;
   object-fit: contain;
 }
-
+.card__btn {
+  margin-top: 15px;
+  width: 100% !important;
+}
 .card__block-code {
   display: flex;
   justify-content: space-between;
@@ -66,7 +74,7 @@
 }
 .card__price-kgs {
   text-align: right;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: #000;
 }
@@ -79,6 +87,7 @@
   margin-top: -10px;
 }
 .card__block-category {
+  max-width: 70%;
 }
 .shopping-icon {
   position: absolute;
@@ -115,10 +124,16 @@
 .ant-carousel .slick-dots li button {
   display: none !important;
 }
+.svg__form {
+  margin-right: 10px;
+}
 
 @media (max-width: 675px) {
   .country-block img {
     max-width: 225px;
+  }
+  .cards__block {
+    margin: 0 auto;
   }
 }
 @media (max-width: 610px) {

@@ -18,13 +18,13 @@
 }
 .garant-desc {
   max-width: 800px;
-  text-align: center;
+  text-align: left;
   /* font-size: 18px; */
   margin: 0 2%;
 }
 .garant-desc-end {
   max-width: 1005;
-  text-align: center;
+  text-align: left;
   /* font-size: 18px; */
 }
 .garant-start {
@@ -33,12 +33,12 @@
   font-size: 40px;
 }
 .great-ul {
-  padding: 0 3%;
+  padding: 0 0%;
 }
 
 .garant-lesk {
   margin: 20px 0;
-  text-align: center;
+  text-align: left;
 }
 .garant-h4 {
   font-size: 20px;
@@ -47,6 +47,14 @@
 @media (max-width: 990px) {
   .garant-first-block {
     flex-direction: column;
+  }
+}
+@media (max-width: 425px) {
+  .garant-start {
+    font-size: 30px;
+  }
+  .garant-desc p {
+    margin-top: 30px;
   }
 }
 @media (max-width: 320px) {

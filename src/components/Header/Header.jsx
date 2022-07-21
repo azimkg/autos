@@ -12,8 +12,14 @@ import { categories } from "../../helpers/categorie";
 import { useContext } from "react";
 import { partContext } from "../../partsContext";
 import { useEffect } from "react";
-import { HeartOutlined, SearchOutlined } from "@ant-design/icons";
-import { Button, Tooltip } from "antd";
+import {
+  HeartOutlined,
+  SearchOutlined,
+  ShoppingCartOutlined,
+} from "@ant-design/icons";
+import { Badge, Button, Tooltip } from "antd";
+import { authContext } from "../../authContext";
+import { favContext } from "../../favContext";
 
 const NAVBAR_ITEMS = [
   {
@@ -47,10 +53,13 @@ const Header = () => {
   const [features, setFeatures] = useState(false);
   const [all, setAll] = useState(false);
   const [active, setActive] = useState("header2-block4");
-  const { brands, category, getAllBrands, getAllCategories } =
-    useContext(partContext);
+  const { brands, getAllBrands } = useContext(partContext);
+  const { currentUser, handleLogout } = useContext(authContext);
+  const { favLength1, getCart2 } = useContext(favContext);
+
   useEffect(() => {
     getAllBrands();
+    getCart2();
   }, []);
   const navToggle = () => {
     active === "header2-block4"
@@ -70,11 +79,25 @@ const Header = () => {
               </Link>
             </div>
             <div className="header1-block2">
-              <Link className="favorites_link" to="/favorites">
-                <Tooltip placement="bottom" title="Избранное">
-                  <HeartOutlined className="HeartFilled" />
-                </Tooltip>
-              </Link>
+              {currentUser ? (
+                <Link className="favorites_link" to="/favorites">
+                  <Tooltip
+                    className="HeartFilled"
+                    placement="bottom"
+                    title="Корзина"
+                  >
+                    <Badge style={{ marginRight: "30px" }} count={+favLength1}>
+                      <ShoppingCartOutlined className="HeartFilled" />
+                    </Badge>
+                  </Tooltip>
+                </Link>
+              ) : (
+                <Link className="favorites_link" to="/favorites">
+                  <Tooltip placement="bottom" title="Корзина">
+                    <ShoppingCartOutlined className="HeartFilled" />
+                  </Tooltip>
+                </Link>
+              )}
 
               <Link to="/search">
                 <Tooltip placement="bottom" title="поиск по VIN-code">
@@ -95,39 +118,82 @@ const Header = () => {
                 setAll(!all);
                 setFeatures(false);
               }}
-              className="header2-block1"
+              className="header2-block1 header2-block2-category"
             >
               <h5 className="header-h5">ВСЕ КАТЕГОРИИ</h5>
               <img className="burger" src={image3} alt="" />
               {all ? (
                 <div className="all">
                   {categories.map((item) => (
-                    <Link to={`/category/${item.id}`}>
-                      <h4 key={item.id} className="all-link">
-                        {item.title}
-                      </h4>
-                    </Link>
+                    <div className="category-link">
+                      <Link to={`/category/${item.id}`}>
+                        <h4 key={item.id} className="all-link">
+                          {item.title}
+                        </h4>
+                      </Link>
+                    </div>
                   ))}
+                </div>
+              ) : null}
+            </div>
+            <div
+              onClick={() => {
+                setAll(!all);
+                setFeatures(false);
+              }}
+              className="header2-block1 header2-navbar2"
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  paddingTop: "10px",
+                }}
+              >
+                <h5 className="header-h5" style={{ marginLeft: "10px" }}>
+                  МЕНЮ
+                </h5>
+                <img
+                  style={{ marginLeft: "100px" }}
+                  className="burger"
+                  src={image11}
+                  alt="image"
+                />
+              </div>
+              {all ? (
+                <div className="all">
+                  {NAVBAR_ITEMS.map((item) => (
+                    <div className="category-link">
+                      <Link to={item.link} key={item.id}>
+                        <h4 className="all-link">{item.title}</h4>
+                      </Link>
+                    </div>
+                  ))}
+                  {currentUser ? (
+                    <>
+                      <h4 className="all-link">{currentUser}</h4>
+                      <h4 className="all-link" onClick={handleLogout}>
+                        Выйти
+                      </h4>
+                    </>
+                  ) : (
+                    <>
+                      <Link className="all-link" to="/login">
+                        <h4>Вход</h4>
+                      </Link>
+                      <Link className="all-link" to="/login">
+                        <h4>Регистрация</h4>
+                      </Link>
+                    </>
+                  )}
                 </div>
               ) : null}
             </div>
 
             <div className="header2-block2">
-              <div className="header-media">
-                <img
-                  onClick={navToggle}
-                  className="burger-block2"
-                  src={image11}
-                  alt="image"
-                />
-              </div>
+              <div className="header-media"></div>
               <div className={active}>
-                <img
-                  onClick={navToggle}
-                  src={image5}
-                  alt="image"
-                  className="close"
-                />
+                <img src={image5} alt="image" className="close" />
 
                 {NAVBAR_ITEMS.map((navLink) => (
                   <Link
@@ -151,7 +217,7 @@ const Header = () => {
                 <div className="features">
                   <div className="features-block1">
                     {brands.map((item) => (
-                      <Link to={`/models/${item.id}`}>
+                      <Link to={`/models/${item.id}`} key={item.id}>
                         <h4
                           onClick={() => setFeatures(false)}
                           className="features-h4"

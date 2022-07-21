@@ -47,7 +47,7 @@
 .shopByCategories__cards {
   display: flex;
   width: 370px;
-  padding: 15px 5px 15px 0;
+  padding: 15px 20px 15px 0;
   margin: 20px 0;
 }
 .shopByCategories__cards-img {
@@ -195,7 +195,7 @@
     font-size: 18px;
     text-align: center;
     letter-spacing: 5px;
-    line-height: 16px;
+    line-height: 22px;
   }
   .shopByCategories__span {
     margin: 7px 2px;

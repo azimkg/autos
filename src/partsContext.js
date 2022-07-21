@@ -18,6 +18,7 @@ const INIT_STATE = {
   category: [],
   parts: [],
   onePart: null,
+  pages: 0,
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -29,7 +30,11 @@ const reducer = (state = INIT_STATE, action) => {
     case GET_ONE_CATEGORY:
       return { ...state, category: action.payload };
     case GET_ALL:
-      return { ...state, parts: action.payload };
+      return {
+        ...state,
+        parts: action.payload.data,
+        pages: action.payload.headers["content-length"],
+      };
     case GET_ONE_PART:
       return { ...state, onePart: action.payload };
     default:
@@ -69,10 +74,11 @@ const PartsContextProvider = ({ children }) => {
   }
 
   async function getAllParts() {
-    let { data } = await axios(`${API}/goods/` + window.location.search);
+    let res = await axios(`${API}/goods/` + window.location.search);
+    // console.log(res);
     dispatch({
       type: GET_ALL,
-      payload: data,
+      payload: res,
     });
   }
 
@@ -93,6 +99,7 @@ const PartsContextProvider = ({ children }) => {
         parts: state.parts,
         onePart: state.onePart,
         productsCount: state.productsCount,
+        pages: state.pages,
         getAllBrands,
         getAllModels,
         getAllCategories,

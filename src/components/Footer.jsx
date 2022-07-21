@@ -109,11 +109,9 @@ const Footer = () => {
                       <h3 class="modtitle">Категории</h3>
                       <div class="modcontent">
                         {categories.slice(5, 11).map((item) => (
-                          <ul class="menu">
+                          <ul class="menu" key={item.id}>
                             <Link to={`/category/${item.id}`}>
-                              <li key={item.id} className="footer__liteg">
-                                {item.title}
-                              </li>
+                              <li className="footer__liteg">{item.title}</li>
                             </Link>
                           </ul>
                         ))}

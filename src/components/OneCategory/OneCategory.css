@@ -3,3 +3,49 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.category__breadCrumps {
+  display: flex;
+  margin-top: 30px;
+}
+.category__breadCrumps-title2 {
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+  font-size: 22px;
+  font-weight: normal;
+  margin-left: 5px;
+}
+.category__breadCrumps-title1 {
+  letter-spacing: 1px;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.all__info {
+  font-size: 14px;
+  text-decoration: underline;
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.all__info:hover {
+  color: rgb(162, 162, 245);
+}
+@media (max-width: 680px) {
+  .onecategories {
+    justify-content: center;
+  }
+  .category__breadCrumps-title1 {
+    font-size: 13px;
+  }
+  .category__breadCrumps-title2 {
+    font-size: 13px;
+  }
+}
+@media (max-width: 385px) {
+  .category__breadCrumps-title1 {
+    font-size: 11px;
+  }
+  .category__breadCrumps-title2 {
+    font-size: 11px;
+  }
+}
