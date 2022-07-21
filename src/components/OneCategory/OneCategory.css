@@ -29,6 +29,7 @@
 
 .all__info:hover {
   color: rgb(162, 162, 245);
+  cursor: pointer;
 }
 @media (max-width: 680px) {
   .onecategories {

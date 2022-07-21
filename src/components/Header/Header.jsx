@@ -59,8 +59,12 @@ const Header = () => {
 
   useEffect(() => {
     getAllBrands();
-    getCart2();
   }, []);
+
+  useEffect(() => {
+    getCart2();
+  }, [favLength1]);
+
   const navToggle = () => {
     active === "header2-block4"
       ? setActive("header2-block4 nav-active")

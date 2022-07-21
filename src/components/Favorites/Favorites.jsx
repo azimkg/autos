@@ -89,7 +89,6 @@ const Favorites = () => {
           </div>
           <div className="footer_cart">
             <h2>
-              {" "}
               <span>Итоговая цена:</span> {+cart.totalPrice}kgs
             </h2>
           </div>

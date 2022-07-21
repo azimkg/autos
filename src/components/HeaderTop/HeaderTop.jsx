@@ -9,9 +9,11 @@ import "./HeaderTop.css";
 const HeaderTop = () => {
   const { currentUser, handleLogout } = useContext(authContext);
   const { favLength1, getCart2 } = useContext(favContext);
+
   useEffect(() => {
     getCart2();
-  }, []);
+  }, [favLength1]);
+
   return (
     <div>
       <div className="header__top">
