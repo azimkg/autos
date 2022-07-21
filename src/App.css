@@ -48,11 +48,14 @@
   overflow: hidden;
 }
 .card__img {
-  max-width: 90%;
+  max-width: 100%;
   margin-bottom: 15px;
   object-fit: contain;
 }
-
+.card__btn {
+  margin-top: 15px;
+  width: 100% !important;
+}
 .card__block-code {
   display: flex;
   justify-content: space-between;
@@ -120,6 +123,9 @@
 }
 .ant-carousel .slick-dots li button {
   display: none !important;
+}
+.svg__form {
+  margin-right: 10px;
 }
 
 @media (max-width: 675px) {

@@ -17,5 +17,8 @@
 .card__block-category {
   color: #8792b6;
 }
+.vincode {
+  display: inline-block;
+}
 @media (max-width: 680px) {
 }

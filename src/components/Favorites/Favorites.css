@@ -69,3 +69,18 @@
   width: 100%;
   transition: 800ms ease all;
 }
+
+.empty__null {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.empty__img-1 {
+  max-width: 100%;
+}
+@media (max-width: 600px) {
+  .empty__null {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+}

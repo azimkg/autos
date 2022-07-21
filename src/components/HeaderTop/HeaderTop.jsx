@@ -1,10 +1,12 @@
 import { HeartOutlined } from "@ant-design/icons";
 import { Tooltip } from "antd";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { authContext } from "../../authContext";
 import "./HeaderTop.css";
 
 const HeaderTop = () => {
+  const { currentUser, handleLogout } = useContext(authContext);
   return (
     <div>
       <div className="header__top">
@@ -67,6 +69,26 @@ const HeaderTop = () => {
                   <HeartOutlined className="header_top_heart" />
                 </Tooltip>
               </Link>
+              <div className="auth__registr">
+                {currentUser ? (
+                  <>
+                    <span>{currentUser}</span>/
+                    <span className="auth__registret" onClick={handleLogout}>
+                      Выйти
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <Link className="auth__registret" to="/login">
+                      <span>Вход</span>
+                    </Link>
+                    /
+                    <Link className="auth__registret" to="/login">
+                      <span>Регистрация</span>
+                    </Link>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>

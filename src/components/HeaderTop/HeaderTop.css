@@ -1,6 +1,19 @@
 .header__top {
   background-color: #282828;
 }
+.auth__registr {
+  font-size: 18px;
+  color: #e0dddd;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.auth__registret {
+  color: #e0dddd;
+}
+.auth__registret:hover {
+  color: #ff2d37;
+}
 .header__top-social {
   display: flex;
 }
@@ -71,6 +84,13 @@ ul {
   padding-top: 5px;
   color: rgb(211, 211, 211);
 }
+
+@media (max-width: 768px) {
+  .auth__registr {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .header_top_heart {
     display: block;

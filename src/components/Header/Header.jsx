@@ -12,8 +12,14 @@ import { categories } from "../../helpers/categorie";
 import { useContext } from "react";
 import { partContext } from "../../partsContext";
 import { useEffect } from "react";
-import { HeartOutlined, SearchOutlined } from "@ant-design/icons";
-import { Button, Tooltip } from "antd";
+import {
+  HeartOutlined,
+  SearchOutlined,
+  ShoppingCartOutlined,
+} from "@ant-design/icons";
+import { Badge, Button, Tooltip } from "antd";
+import { authContext } from "../../authContext";
+import { favContext } from "../../favContext";
 
 const NAVBAR_ITEMS = [
   {
@@ -47,8 +53,10 @@ const Header = () => {
   const [features, setFeatures] = useState(false);
   const [all, setAll] = useState(false);
   const [active, setActive] = useState("header2-block4");
-  const { brands, category, getAllBrands, getAllCategories } =
-    useContext(partContext);
+  const { brands, getAllBrands } = useContext(partContext);
+  const { currentUser, handleLogout } = useContext(authContext);
+  const { favLength1 } = useContext(favContext);
+
   useEffect(() => {
     getAllBrands();
   }, []);
@@ -70,11 +78,21 @@ const Header = () => {
               </Link>
             </div>
             <div className="header1-block2">
-              <Link className="favorites_link" to="/favorites">
-                <Tooltip placement="bottom" title="Избранное">
-                  <HeartOutlined className="HeartFilled" />
-                </Tooltip>
-              </Link>
+              {currentUser ? (
+                <Link className="favorites_link" to="/favorites">
+                  <Tooltip placement="bottom" title="Корзина">
+                    <Badge style={{ marginRight: "30px" }} count={+favLength1}>
+                      <ShoppingCartOutlined className="HeartFilled" />
+                    </Badge>
+                  </Tooltip>
+                </Link>
+              ) : (
+                <Link className="favorites_link" to="/favorites">
+                  <Tooltip placement="bottom" title="Корзина">
+                    <ShoppingCartOutlined className="HeartFilled" />
+                  </Tooltip>
+                </Link>
+              )}
 
               <Link to="/search">
                 <Tooltip placement="bottom" title="поиск по VIN-code">
@@ -146,6 +164,23 @@ const Header = () => {
                       </Link>
                     </div>
                   ))}
+                  {currentUser ? (
+                    <>
+                      <h4 className="all-link">{currentUser}</h4>
+                      <h4 className="all-link" onClick={handleLogout}>
+                        Выйти
+                      </h4>
+                    </>
+                  ) : (
+                    <>
+                      <Link className="all-link" to="/login">
+                        <h4>Вход</h4>
+                      </Link>
+                      <Link className="all-link" to="/login">
+                        <h4>Регистрация</h4>
+                      </Link>
+                    </>
+                  )}
                 </div>
               ) : null}
             </div>

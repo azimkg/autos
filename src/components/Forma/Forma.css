@@ -9,11 +9,10 @@
 .form_wrap {
   display: flex;
   justify-content: space-around;
-  /* width: 80vw; */
   flex-wrap: wrap;
 }
 .form_inner {
-  margin: 25px auto !important;
+  margin: 50px auto !important;
   width: 35vw !important;
   border: 1px solid rgb(211, 205, 205);
   padding: 30px;
@@ -41,6 +40,12 @@
 .isLogin {
   color: red;
   cursor: pointer;
+  display: inline-block;
+  margin-left: 3px;
+}
+.isLogin:hover {
+  color: rgb(231, 142, 142);
+  cursor: pointer;
 }
 .login-form-button {
   background-color: #878787 !important;
@@ -67,7 +72,6 @@
   width: 250px;
   height: 70px;
   margin: 20px !important;
-  /* padding: 20px !important; */
 }
 .bottom_card-txt {
   text-align: start;
@@ -85,4 +89,65 @@
   padding: 10px;
   background: white !important;
   color: red !important;
+}
+.form__login__password {
+  width: 400px !important;
+}
+@media (max-width: 1270px) {
+  .form__login__password {
+    width: 350px !important;
+  }
+}
+@media (max-width: 1150px) {
+  .form__login__password {
+    width: 300px !important;
+  }
+}
+@media (max-width: 970px) {
+  .form__login__password {
+    width: 250px !important;
+  }
+}
+@media (max-width: 850px) {
+  .form__login__password {
+    width: 220px !important;
+  }
+}
+
+@media (max-width: 766px) {
+  .form__login__password {
+    width: 400px !important;
+  }
+}
+
+@media (max-width: 624px) {
+  .form__login__password {
+    width: 350px !important;
+  }
+}
+@media (max-width: 554px) {
+  .form__login__password {
+    width: 300px !important;
+  }
+}
+@media (max-width: 488px) {
+  .form__login__password {
+    width: 260px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .form__login__password {
+    width: 220px !important;
+  }
+}
+@media (max-width: 370px) {
+  .form__login__password {
+    width: 200px !important;
+  }
+}
+@media (max-width: 340px) {
+  .form__login__password {
+    width: 170px !important;
+  }
 }
