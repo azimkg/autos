@@ -1,9 +1,10 @@
 import React, { useReducer, useState } from "react";
+import { calcSubPrice, calcTotalPrice } from "./helpers/calcPrice";
 import { CASE_GET_CART } from "./helpers/cases";
 export const favContext = React.createContext();
 
 const INIT_STATE = {
-  fav: {},
+  cart: {},
   favLength1: 0,
 };
 
@@ -12,9 +13,10 @@ const reducer = (state = INIT_STATE, action) => {
     case CASE_GET_CART:
       return {
         ...state,
-        fav: action.payload,
-        favLength1: action.payload.favorite.length,
+        cart: action.payload,
+        favLength1: action.payload.products.length,
       };
+
     default:
       return state;
   }
@@ -22,63 +24,61 @@ const reducer = (state = INIT_STATE, action) => {
 
 const FavContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
   function getCart2() {
-    let fav = JSON.parse(localStorage.getItem("fav"));
-    if (!fav) {
-      fav = {
-        favorite: [],
-      };
-      localStorage.setItem("fav", JSON.stringify(fav));
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = { products: [], totalPrice: 0 };
+      localStorage.setItem("cart", JSON.stringify(cart));
     }
+    cart.totalPrice = calcTotalPrice(cart.products);
     dispatch({
       type: CASE_GET_CART,
-      payload: fav,
+      payload: cart,
     });
   }
+
   function addProductToCart2(product) {
-    let fav = JSON.parse(localStorage.getItem("fav"));
-    if (!fav) {
-      fav = {
-        favorite: [],
-      };
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = { products: [], totalPrice: 0 };
     }
+
     let newProduct = {
       item: product,
       count: 1,
+      subPrice: product.price_kgs,
     };
-    let isProduct = fav.favorite.some(
+    let isProductInCart = cart.products.some(
       (item) => item.item.id == newProduct.item.id
     );
-    if (isProduct) {
-      fav.favorite = fav.favorite.filter(
+    if (isProductInCart) {
+      cart.products = cart.products.filter(
         (item) => item.item.id != newProduct.item.id
       );
     } else {
-      fav.favorite.push(newProduct);
+      cart.products.push(newProduct);
     }
-    localStorage.setItem("fav", JSON.stringify(fav));
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem("cart", JSON.stringify(cart));
   }
+
   function checkItemInCard2(id) {
-    let fav = JSON.parse(localStorage.getItem("fav"));
-    if (!fav) {
-      fav = {
-        favorite: [],
-        totalPrice: 0,
-      };
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = { products: [], totalPrice: 0 };
     }
-    let isProduct = fav.favorite.some((item) => item.item.id == id);
-    return isProduct;
+    let isProductInCart = cart.products.some((item) => item.item.id == id);
+    return isProductInCart;
   }
+
   function deleteFromCart(id) {
-    let fav = JSON.parse(localStorage.getItem("fav"));
-    if (!fav) {
-      fav = {
-        favorite: [],
-        totalPrice: 0,
-      };
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = { products: [], totalPrice: 0 };
     }
-    fav.favorite = fav.favorite.filter((item) => item.item.id != id);
-    localStorage.setItem("fav", JSON.stringify(fav));
+    cart.products = cart.products.filter((item) => item.item.id != id);
+    localStorage.setItem("cart", JSON.stringify(cart));
     getCart2();
   }
 
@@ -86,26 +86,26 @@ const FavContextProvider = ({ children }) => {
     if (count <= 0) {
       count = 1;
     }
-    let fav = JSON.parse(localStorage.getItem("fav"));
-    if (!fav) {
-      fav = {
-        favorite: [],
-        totalPrice: 0,
-      };
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = { products: [], totalPrice: 0 };
     }
-    fav.favorite = fav.favorite.map((item) => {
+    cart.products = cart.products.map((item) => {
       if (item.item.id == id) {
         item.count = count;
+        item.subPrice = calcSubPrice(item);
       }
       return item;
     });
-    localStorage.setItem("fav", JSON.stringify(fav));
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem("cart", JSON.stringify(cart));
     getCart2();
   }
+
   return (
     <favContext.Provider
       value={{
-        fav: state.fav,
+        cart: state.cart,
         favLength1: state.favLength1,
         getCart2,
         addProductToCart2,

@@ -1,5 +1,5 @@
-import { List } from "antd";
-import React, { useContext, useEffect } from "react";
+import { List, Modal } from "antd";
+import React, { useContext, useEffect, useState } from "react";
 import { favContext } from "../../favContext";
 import "./Favorites.css";
 import cart__empty from "../Images/empty.jpg";
@@ -7,19 +7,33 @@ import { authContext } from "../../authContext";
 import empty from "../Images/empty.jpg";
 
 const Favorites = () => {
-  const { getCart2, fav, deleteFromCart } = useContext(favContext);
+  const { getCart2, cart, deleteFromCart, changeProductCount } =
+    useContext(favContext);
   const { currentUser } = useContext(authContext);
 
-  const { favorite } = fav;
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+  console.log(cart);
   useEffect(() => {
     getCart2();
   }, []);
   return currentUser ? (
-    fav.favorite ? (
+    cart.products ? (
       <>
         <div className="container">
           <div className="favorite_main">
-            {fav.favorite.map((item) => (
+            {cart.products.map((item) => (
               <div
                 className="favorite_block card_block card"
                 key={item.item.id}
@@ -37,7 +51,20 @@ const Favorites = () => {
                 />
 
                 <h1 className="card__name">{item.item.good_name}</h1>
-                <h4 className="card__desc">{item.item.description}</h4>
+                <h4 className="card__desc">
+                  <a className="all__info" onClick={showModal}>
+                    подробнее
+                  </a>
+                </h4>
+                <Modal
+                  title="Описание"
+                  visible={isModalVisible}
+                  onOk={handleOk}
+                  onCancel={handleCancel}
+                  footer={null}
+                >
+                  <h4 className="card__desc">{item.item.description}</h4>
+                </Modal>
                 <p className="card__block-vincode">
                   Винкод: <span className="vincode">{item.item.vincode}</span>
                 </p>
@@ -59,12 +86,16 @@ const Favorites = () => {
                 </div>
               </div>
             ))}
+            <h2>Итоговая цена: {+cart.totalPrice}$</h2>
           </div>
         </div>
       </>
     ) : (
-      <div>
-        <img src={cart__empty} alt="" />
+      <div className="container">
+        <div className="empty__null">
+          <h3>Ваша корзина пуста.</h3>
+          <img src={empty} alt="image" className="empty__img-1" />
+        </div>
       </div>
     )
   ) : (

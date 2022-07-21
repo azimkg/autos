@@ -55,10 +55,11 @@ const Header = () => {
   const [active, setActive] = useState("header2-block4");
   const { brands, getAllBrands } = useContext(partContext);
   const { currentUser, handleLogout } = useContext(authContext);
-  const { favLength1 } = useContext(favContext);
+  const { favLength1, getCart2 } = useContext(favContext);
 
   useEffect(() => {
     getAllBrands();
+    getCart2();
   }, []);
   const navToggle = () => {
     active === "header2-block4"
@@ -80,7 +81,11 @@ const Header = () => {
             <div className="header1-block2">
               {currentUser ? (
                 <Link className="favorites_link" to="/favorites">
-                  <Tooltip placement="bottom" title="Корзина">
+                  <Tooltip
+                    className="HeartFilled"
+                    placement="bottom"
+                    title="Корзина"
+                  >
                     <Badge style={{ marginRight: "30px" }} count={+favLength1}>
                       <ShoppingCartOutlined className="HeartFilled" />
                     </Badge>
