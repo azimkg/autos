@@ -41,6 +41,7 @@ const OneCategories = ({ item, loc }) => {
   function clickCart() {
     addProductToCart2(item);
     setCheckItem2(checkItemInCard2(item.id));
+    setTimeout(() => message.warning("Товар добавлен в корзину"));
   }
 
   return (
