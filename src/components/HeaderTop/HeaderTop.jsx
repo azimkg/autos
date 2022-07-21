@@ -1,12 +1,17 @@
-import { HeartOutlined } from "@ant-design/icons";
-import { Tooltip } from "antd";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { Badge, Tooltip } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { authContext } from "../../authContext";
+import { favContext } from "../../favContext";
 import "./HeaderTop.css";
 
 const HeaderTop = () => {
   const { currentUser, handleLogout } = useContext(authContext);
+  const { favLength1, getCart2 } = useContext(favContext);
+  useEffect(() => {
+    getCart2();
+  }, []);
   return (
     <div>
       <div className="header__top">
@@ -60,15 +65,20 @@ const HeaderTop = () => {
               </a>
             </ul>
             <div className="header__top-log">
-              <Link to="/favorites">
-                <Tooltip
-                  className="header__top-items"
-                  placement="bottom"
-                  title="Избранное"
-                >
-                  <HeartOutlined className="header_top_heart" />
-                </Tooltip>
-              </Link>
+              {currentUser ? (
+                <Badge count={+favLength1} className="classNameBadge">
+                  <Link to="/favorites">
+                    <ShoppingCartOutlined className="header_top_heart" />
+                  </Link>
+                </Badge>
+              ) : (
+                // <Badge count={+favLength1} className="classNameBadge">
+                <Link to="/favorites">
+                  <ShoppingCartOutlined className="header_top_cart" />
+                </Link>
+                // </Badge>
+              )}
+
               <div className="auth__registr">
                 {currentUser ? (
                   <>

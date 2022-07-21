@@ -1,6 +1,9 @@
 .header__top {
   background-color: #282828;
 }
+.classNameBadge {
+  display: none;
+}
 .auth__registr {
   font-size: 18px;
   color: #e0dddd;
@@ -26,6 +29,17 @@
   fill: rgb(211, 211, 211);
 }
 .header_top_heart {
+  border: 0.7px solid rgb(211, 211, 211);
+  padding: 8px 12px;
+  margin-left: 10px;
+  padding-bottom: 0;
+  border-radius: 5px;
+  color: white;
+  height: 36px;
+  font-size: 20px;
+  display: none;
+}
+.header_top_cart {
   border: 0.7px solid rgb(211, 211, 211);
   padding: 8px 12px;
   margin-left: 10px;
@@ -62,6 +76,7 @@ ul {
   align-items: center;
   justify-content: space-between;
 }
+
 .header__top-login {
   padding-top: 18px;
   display: flex;
@@ -94,6 +109,13 @@ ul {
 @media only screen and (max-width: 600px) {
   .header_top_heart {
     display: block;
+  }
+  .classNameBadge {
+    display: inline-block;
+    margin-top: 11px;
+  }
+  .header_top_cart {
+    display: block;
     margin-top: 10px;
   }
 }
@@ -107,9 +129,6 @@ ul {
     padding-top: 0;
   }
   .header__top-login p {
-    display: none;
-  }
-  span {
     display: none;
   }
 }

@@ -14,6 +14,19 @@
 .cart__img-fav {
   max-width: 100%;
 }
+.footer_cart {
+  border: 1px solid #bfb9b9;
+  background-color: #ffff;
+  border-radius: 10px;
+  text-align: center;
+}
+.footer_cart h2 {
+  margin-top: 6px;
+  color: red;
+}
+.footer_cart span {
+  color: black;
+}
 .custom-btn {
   width: 130px;
   height: 40px;
