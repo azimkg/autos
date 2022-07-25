@@ -10,7 +10,7 @@ const PartsList = () => {
   let loc = location.pathname.slice(29, location.pathname.length);
 
   let lock = location.pathname.slice(8, location.pathname.length);
-  let regex = parseInt(lock);
+  let model = parseInt(lock);
 
   let local = loc.match(/[0-9]/g);
   let arr = local.join("");
@@ -20,15 +20,11 @@ const PartsList = () => {
     getAllParts();
   }, []);
 
-  useEffect(() => {
-    getAllParts();
-  }, []);
-
   return (
     <div className="container">
       <div className="divskiy">
         {parts?.map((item) =>
-          item.category == arr1 && item.car_model == regex ? (
+          item.category == arr1 && item.car_model == model ? (
             <ToolsofBmw key={item.id} item={item} />
           ) : null
         )}

@@ -5,7 +5,6 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { categories } from "../../helpers/categorie";
 
 const Categories = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
   const { category, getAllCategories } = useContext(partContext);
   const location = useLocation();
   let loc = location.pathname.slice(21, location.pathname.length);
