@@ -8,3 +8,7 @@
   text-align: center;
   margin: 20px 0;
 }
+.collapsed__accordeon {
+  border: none !important;
+  background-color: white;
+}
