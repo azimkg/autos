@@ -23,6 +23,7 @@ import ravon from "../components/ModelsCart/brendsCar/brend21.webp";
 import kia from "../components/ModelsCart/brendsCar/brend22.webp";
 import others from "../components/ModelsCart/brendsCar/brend23.webp";
 import akkum from "../components/ModelsCart/brendsCar/brend24.webp";
+
 export const brandes = [
   {
     img: mersedes,
@@ -114,10 +115,10 @@ export const brandes = [
   },
   {
     img: others,
-    id: 30,
+    id: 33,
   },
   {
     img: akkum,
-    id: 31,
+    id: 32,
   },
 ];
