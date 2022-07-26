@@ -64,6 +64,9 @@
 .shopByCategories__divchik {
   background-color: #fff;
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .shopByCategories__divchik:hover {
   box-shadow: 0px 0px 18px 1px rgba(34, 60, 80, 0.2);
@@ -90,7 +93,7 @@
   position: relative;
   z-index: 1;
   background: rgba(0, 0, 0, 0.1);
-  margin: 6px 12%;
+  margin: 0px 12%;
   margin-bottom: 20px;
 }
 .btn-BestSeller:hover {

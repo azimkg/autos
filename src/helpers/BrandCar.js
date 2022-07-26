@@ -115,7 +115,7 @@ export const brandes = [
   },
   {
     img: others,
-    id: 33,
+    id: 31,
   },
   {
     img: akkum,
