@@ -10,6 +10,7 @@ const Details = () => {
   const params = useParams();
   useEffect(() => {
     getOneParts(params.id);
+    window.scrollTo(0, 0);
   }, []);
   console.log(onePart);
   return onePart ? (

@@ -18,7 +18,7 @@ const OneCategory = () => {
   useEffect(() => {
     getAllParts();
     getAllCategories();
-    window.scrollTo(0, 0);
+   
   }, []);
 
   useEffect(() => {
