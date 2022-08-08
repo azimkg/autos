@@ -27,6 +27,7 @@ const Favorites = () => {
   console.log(cart);
   useEffect(() => {
     getCart2();
+    window.scrollTo(0, 0);
   }, []);
   return currentUser ? (
     cart.products ? (

@@ -8,7 +8,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Button, Form, Input, Row, Col, Alert } from "antd";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { authContext } from "../../authContext";
 import { useNavigate } from "react-router-dom";
 import "./Forma.css";
@@ -38,6 +38,9 @@ const App = () => {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <div className="form_wrap container">

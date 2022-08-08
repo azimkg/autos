@@ -24,7 +24,6 @@ const OneCategory = () => {
   useEffect(() => {
     setSearchParams({
       search: searchValue,
-      vincode: searchValue,
     });
   }, [searchValue]);
 

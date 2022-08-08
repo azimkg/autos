@@ -6,10 +6,13 @@ import {
   PhoneFilled,
   WhatsAppOutlined,
 } from "@ant-design/icons";
-import React from "react";
+import React, { useEffect } from "react";
 import "./Contacts.css";
 import telega from "../Images/telega.svg";
 const Contacts = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="contacts_wrapper">
       <div className="contacts_inner">

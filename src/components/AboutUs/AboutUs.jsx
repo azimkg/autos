@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import price from "../Images/price.png";
 import choice from "../Images/choice.png";
 import deliver from "../Images/deliver.png";
@@ -9,9 +9,10 @@ import garant from "../Images/garant.png";
 
 import "./AboutUs.css";
 
-// const { Panel } = Collapse;
-
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="container">
       <div className="about_cols">

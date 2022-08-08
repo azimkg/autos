@@ -58,15 +58,22 @@ const Footer = () => {
                       <h3 class="modtitle">Информация</h3>
                       <div class="modcontent">
                         <ul class="menu">
-                          <li>
-                            <a href="/about">О нас</a>
-                          </li>
-                          <li>
-                            <a href="/contacts">Контакты</a>
-                          </li>
-                          <li>
-                            <a href="/guarentees">Гарантии</a>
-                          </li>
+                          <Link to="/about">
+                            <li>
+                              <a>О нас</a>
+                            </li>
+                          </Link>
+                          <Link to="/contacts">
+                            <li>
+                              <a>Контакты</a>
+                            </li>
+                          </Link>
+                          <Link to="/guarentees">
+                            <li>
+                              <a>Гарантии</a>
+                            </li>
+                          </Link>
+
                           <li>
                             <a className="forText" href="tel:+996504253345">
                               Поддержка 24/7

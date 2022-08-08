@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import imgBox from "./img-great/image 2.svg";
 import imgBox2 from "./img-great/image 3.svg";
 import "./Guarantees.css";
 
 const Guearantees = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="great-container">
       <div className="great-main-contain">

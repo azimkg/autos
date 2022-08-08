@@ -1,5 +1,5 @@
 import { Collapse } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import "./QA.css";
 const { Panel } = Collapse;
 
@@ -31,43 +31,48 @@ const text4 = `
                 
 `;
 
-const QA = () => (
-  <div className="container qa">
-    <h2 className="qa_title">Вопросы и Ответы</h2>
-    <Collapse className="collapsed__accordeon" accordion>
-      <Panel
-        className="collapsed__panel"
-        header="Какие сроки выполнения заказа после его оплаты?"
-        key="1"
-      >
-        <p>{text}</p>
-      </Panel>
-      <Panel
-        header=" Чем неоригинальные запчасти отличаются от оригинальных запчастей"
-        key="2"
-      >
-        <p>{text2}</p>
-      </Panel>
-      <Panel
-        header="
+const QA = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
+    <div className="container qa">
+      <h2 className="qa_title">Вопросы и Ответы</h2>
+      <Collapse className="collapsed__accordeon" accordion>
+        <Panel
+          className="collapsed__panel"
+          header="Какие сроки выполнения заказа после его оплаты?"
+          key="1"
+        >
+          <p>{text}</p>
+        </Panel>
+        <Panel
+          header=" Чем неоригинальные запчасти отличаются от оригинальных запчастей"
+          key="2"
+        >
+          <p>{text2}</p>
+        </Panel>
+        <Panel
+          header="
                   Зачем нужна предоплата за заказ товара? Это же так неудобно!
                 "
-        key="3"
-      >
-        <p>{text3}</p>
-      </Panel>
-      <Panel
-        header="
+          key="3"
+        >
+          <p>{text3}</p>
+        </Panel>
+        <Panel
+          header="
                  
                   Я хочу покупать запчасти оптом. Как это сделать?
                 
                 "
-        key="4"
-      >
-        <p>{text4}</p>
-      </Panel>
-    </Collapse>
-  </div>
-);
+          key="4"
+        >
+          <p>{text4}</p>
+        </Panel>
+      </Collapse>
+    </div>
+  );
+};
 
 export default QA;
