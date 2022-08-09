@@ -14,12 +14,6 @@ const Models = () => {
   }, []);
 
   useEffect(() => {
-    setSearchParams({
-      brand: loc,
-    });
-  }, []);
-
-  useEffect(() => {
     getAllModels();
     window.scrollTo(0, 0);
   }, [searchParams]);
@@ -28,7 +22,9 @@ const Models = () => {
     <div className="container">
       {brands.map((item) =>
         item.id == loc ? (
-          <h1 className="model__title">Каталог {item.brand_name} </h1>
+          <h1 className="model__title" key={item.id}>
+            Каталог {item.brand_name}
+          </h1>
         ) : null
       )}
 

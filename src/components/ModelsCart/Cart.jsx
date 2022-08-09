@@ -22,9 +22,8 @@ const Cart = () => {
                 to={`/models/${item.id}`}
                 key={item.id}
                 class="catalog-link"
-                href="#"
               >
-                <img width={300} src={item.img} alt="" />
+                <img width={300} src={item.img} alt="БРЕНДЫ" />
               </Link>
             ) : null
           )

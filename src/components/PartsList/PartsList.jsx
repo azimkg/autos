@@ -16,6 +16,11 @@ const PartsList = () => {
   let arr = local.join("");
   let arr1 = parseInt(arr);
 
+  let array = parts.map((item) => {
+    return item.id;
+  });
+
+  // console.log(array);
   useEffect(() => {
     getAllParts();
   }, []);

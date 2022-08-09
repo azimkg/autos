@@ -46,7 +46,7 @@ const ToolsofBmw = ({ item }) => {
     setCheckItem2(checkItemInCard2(item.id));
     setTimeout(() => message.warning("Товар добавлен в корзину"));
   }
-  console.log(item);
+
   return (
     <>
       {item ? (

@@ -91,10 +91,18 @@
 }
 .empty__img-1 {
   max-width: 100%;
+  width: 200px;
 }
 @media (max-width: 600px) {
   .empty__null {
     flex-direction: column;
     margin-top: 20px;
   }
+}
+.empty__not {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
 }
