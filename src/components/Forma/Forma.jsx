@@ -29,7 +29,6 @@ const App = () => {
   }
 
   const onFinish = (values) => {
-    console.log(values);
     const { email, password } = values;
     if (isLoginForm) {
       handleLogin(email, password, navigate);

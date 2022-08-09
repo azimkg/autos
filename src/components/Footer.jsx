@@ -6,21 +6,21 @@ import { categories } from "../helpers/categorie";
 const Footer = () => {
   return (
     <div style={{ paddingTop: "50px" }}>
-      <footer class="footer-container typefooter-1">
-        <div class="container">
-          <div class="row footer-middle">
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-10 col-style">
-              <div class="box-footer box-infos">
-                <div class="module">
-                  <h3 class="modtitle">Наши контакты</h3>
-                  <div class="modcontent">
-                    <ul class="list-icon">
+      <footer className="footer-container typefooter-1">
+        <div className="container">
+          <div className="row footer-middle">
+            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-10 col-style">
+              <div className="box-footer box-infos">
+                <div className="module">
+                  <h3 className="modtitle">Наши контакты</h3>
+                  <div className="modcontent">
+                    <ul className="list-icon">
                       <li>
-                        <span class="icon pe-7s-map-marker"></span>
+                        <span className="icon pe-7s-map-marker"></span>
                         Бишкек
                       </li>
                       <li>
-                        <span class="icon pe-7s-call"></span>
+                        <span className="icon pe-7s-call"></span>
                         <a className="forText" href="tel:+996504253345">
                           +996 (504) 253-345
                         </a>
@@ -36,13 +36,13 @@ const Footer = () => {
                         </a>
                       </li>
                       <li>
-                        <span class="icon pe-7s-mail"></span>
+                        <span className="icon pe-7s-mail"></span>
                         <a href="mailto:coautoray312@gmail.com">
                           autoray312@gmail.com
                         </a>
                       </li>
                       <li>
-                        <span class="icon pe-7s-alarm"></span>
+                        <span className="icon pe-7s-alarm"></span>
                         10-00 / 18-00
                       </li>
                     </ul>
@@ -50,14 +50,14 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-style">
-              <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-style">
-                  <div class="box-information box-footer">
-                    <div class="module clearfix">
-                      <h3 class="modtitle">Информация</h3>
-                      <div class="modcontent">
-                        <ul class="menu">
+            <div className="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-style">
+              <div className="row">
+                <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-style">
+                  <div className="box-information box-footer">
+                    <div className="module clearfix">
+                      <h3 className="modtitle">Информация</h3>
+                      <div className="modcontent">
+                        <ul className="menu">
                           <Link to="/about">
                             <li>
                               <a>О нас</a>
@@ -84,39 +84,13 @@ const Footer = () => {
                     </div>
                   </div>
                 </div>
-                {/* <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-style">
-                  <div class="box-account box-footer">
-                    <div class="module clearfix">
-                      <h3 class="modtitle">Основные партнеры</h3>
-                      <div class="modcontent">
-                        <ul class="menu">
-                          <li>
-                            <a href="#">BMW</a>
-                          </li>
-                          <li>
-                            <a href="#">Mercedes</a>
-                          </li>
-                          <li>
-                            <a href="#">Audi</a>
-                          </li>
-                          <li>
-                            <a href="#">Toyota</a>
-                          </li>
-                          <li>
-                            <a href="#">Chevrolet</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-clear">
-                  <div class="box-service box-footer">
-                    <div class="module clearfix">
-                      <h3 class="modtitle">Категории</h3>
-                      <div class="modcontent">
+                <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-clear">
+                  <div className="box-service box-footer">
+                    <div className="module clearfix">
+                      <h3 className="modtitle">Категории</h3>
+                      <div className="modcontent">
                         {categories.slice(5, 11).map((item) => (
-                          <ul class="menu" key={item.id}>
+                          <ul className="menu" key={item.id}>
                             <Link to={`/category/${item.id}`}>
                               <li className="footer__liteg">{item.title}</li>
                             </Link>
@@ -130,14 +104,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div class="footer-bottom">
-          <div class="container">
-            <div class="row">
-              <div class="copyright col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div className="footer-bottom">
+          <div className="container">
+            <div className="row">
+              <div className="copyright col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <p>
                   Autoray © 2022. All Rights Reserved. Designed by
                   <a
-                    class="pixel"
+                    className="pixel"
                     target={"_blank"}
                     href="http://pixeldevs.club/"
                   >
@@ -145,7 +119,7 @@ const Footer = () => {
                   </a>
                 </p>
               </div>
-              <div class="payment-w col-lg-4 col-md-4 col-sm-12 col-xs-12"></div>
+              <div className="payment-w col-lg-4 col-md-4 col-sm-12 col-xs-12"></div>
             </div>
           </div>
         </div>

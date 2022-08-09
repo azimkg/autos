@@ -56,7 +56,7 @@ const ShopByCategories = () => {
               </div>
             </div>
             {categories.slice(0, 1).map((item) => (
-              <Link to={`/category/${item.id}`}>
+              <Link to={`/category/${item.id}`} key={item.id}>
                 <button className="btn-BestSeller">Посмотреть</button>
               </Link>
             ))}
@@ -94,7 +94,7 @@ const ShopByCategories = () => {
               </div>
             </div>
             {categories.slice(2, 3).map((item) => (
-              <Link to={`/category/${item.id}`}>
+              <Link to={`/category/${item.id}`} key={item.id}>
                 <button className="btn-BestSeller">Посмотреть</button>
               </Link>
             ))}
@@ -130,7 +130,7 @@ const ShopByCategories = () => {
               </div>
             </div>
             {categories.slice(1, 2).map((item) => (
-              <Link to={`/category/${item.id}`}>
+              <Link to={`/category/${item.id}`} key={item.id}>
                 <button className="btn-BestSeller">Посмотреть</button>
               </Link>
             ))}
@@ -168,7 +168,7 @@ const ShopByCategories = () => {
               </div>
             </div>
             {categories.slice(11, 12).map((item) => (
-              <Link to={`/category/${item.id}`}>
+              <Link to={`/category/${item.id}`} key={item.id}>
                 <button className="btn-BestSeller">Посмотреть</button>
               </Link>
             ))}
@@ -206,7 +206,7 @@ const ShopByCategories = () => {
               </div>
             </div>
             {categories.slice(6, 7).map((item) => (
-              <Link to={`/category/${item.id}`}>
+              <Link to={`/category/${item.id}`} key={item.id}>
                 <button className="btn-BestSeller">Посмотреть</button>
               </Link>
             ))}
@@ -250,7 +250,7 @@ const ShopByCategories = () => {
               </div>
             </div>
             {categories.slice(17, 18).map((item) => (
-              <Link to={`/category/${item.id}`}>
+              <Link to={`/category/${item.id}`} key={item.id}>
                 <button className="btn-BestSeller">Посмотреть</button>
               </Link>
             ))}

@@ -18,7 +18,12 @@ const Cart = () => {
         {brandes.map((item) =>
           brands.map((brands) =>
             item.id === brands.id ? (
-              <Link to={`/models/${item.id}`} class="catalog-link" href="#">
+              <Link
+                to={`/models/${item.id}`}
+                key={item.id}
+                class="catalog-link"
+                href="#"
+              >
                 <img width={300} src={item.img} alt="" />
               </Link>
             ) : null
