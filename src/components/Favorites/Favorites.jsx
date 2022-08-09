@@ -53,20 +53,6 @@ const Favorites = () => {
                   />
 
                   <h1 className="card__name">{item.item.good_name}</h1>
-                  <h4 className="card__desc">
-                    <a className="all__info" onClick={showModal}>
-                      подробнее
-                    </a>
-                  </h4>
-                  <Modal
-                    title="Описание"
-                    visible={isModalVisible}
-                    onOk={handleOk}
-                    onCancel={handleCancel}
-                    footer={null}
-                  >
-                    <h4 className="card__desc">{item.item.description}</h4>
-                  </Modal>
                   <p className="card__block-vincode">
                     Винкод: <span className="vincode">{item.item.vincode}</span>
                   </p>
@@ -75,7 +61,7 @@ const Favorites = () => {
                       {Math.ceil(item.item.price_kgs)} KGZ
                     </h2>
                     <h2 className="card__price-usd">
-                      {Math.ceil(item.item.price_kgs)} $
+                      {Math.ceil(item.item.price_usd)} $
                     </h2>
                   </div>
                   <div>

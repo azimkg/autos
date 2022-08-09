@@ -99,7 +99,7 @@ const ToolsofBmw = ({ item }) => {
                       {Math.ceil(item.price_kgs)} KGZ
                     </h2>
                     <h2 className="card__price-usd">
-                      {Math.ceil(item.price_kgs)} $
+                      {Math.ceil(item.price_usd)} $
                     </h2>
                   </div>
                 </div>
